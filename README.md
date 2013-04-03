@@ -19,7 +19,7 @@ The code is split into several sections:
 Using the code
 --------------
 
-Copy this code into your PHP working directory and include a client for the version and endpoint you want to talk to (under /includes/impl/4.X/client/), then create an AuthenticationInfo object and populate with  user/pass details and then create a mew
+Copy this code into your PHP working directory and include a client for the version and endpoint you want to talk to (under /includes/impl/4.X/client/), then create an AuthenticationInfo object and populate with  user/pass details, finally create a new
 instance of the endpoint you want to talk to passing the server url and auth details....
 
 <pre>
