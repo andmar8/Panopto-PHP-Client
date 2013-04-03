@@ -14,6 +14,9 @@
      * 
      * You should have received a copy of the GNU General Public License
      * along with Panopto-PHP-Client.  If not, see <http://www.gnu.org/licenses/>.
+     * 
+     * Copyright: Andrew Martin, Newcastle University
+     * 
      */
 ?>
 <!DOCTYPE html>

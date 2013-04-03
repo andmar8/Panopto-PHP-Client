@@ -13,7 +13,7 @@ The code is split into several sections:
 * /includes/dataObjects/objects/responses: Panopto API Version 4.0 return type objects used to receieve responses from the API
 * /includes/impl/X.X/client: Versioned implementations of clients to the various Panopto Endpoints
 * /includes/impl/4.2/dataObjects: Extra request and response objects used in the new version of the API; where compatible, the 4.2 client still uses the original 4.0 API objects under /includes/dataObjects/
-* /logger: A small class to easily insert DEBUG logging
+* /logger: A small class to easily insert DEBUG logging into a file, you can vardump or just log a string, everything is date and timestamped :)
 * /soapDocs: This shows you the soapPHP's view of the API, you can see lists of methods and objects
 
 Endpoints and methods implemented:
