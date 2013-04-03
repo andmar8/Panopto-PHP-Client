@@ -18,34 +18,25 @@
      * Copyright: Andrew Martin, Newcastle University
      * 
      */
+    require_once(dirname(__FILE__)."/../../logger/Logger.php");
 
-class Logger
+abstract class AbstractPanoptoClient
 {
-    private $seed; //Seed each call to the log instance with something, this allows you to differentiate logs calls
-    private $logFile; //The name of the file on the server
-    private $fh; //File Handle
-    
-    public function __construct($logFile,$seed = "")
+    protected $auth;
+    protected $client;
+    protected $endpointName;
+    protected $logger;
+
+    public function getFunctions()
     {
-        $this->seed = $seed!=""?" ".$seed:"";
-        $this->logFile = $logFile;
-        $this->fh = fopen($this->logFile, 'a');
+        echo "<h1>".$this->endpointName." Functions</h1>";
+        echo "<pre>";print_r($this->client->__getFunctions());echo "</pre>";
     }
 
-    public function __destruct()
+    public function getTypes()
     {
-       fclose($this->fh);
-    }
-
-    public function var_dump($object)
-    {
-        $this->log(var_export($object,true));
-    }
-    
-    public function log($str)
-    {
-       fwrite($this->fh,date("Y-m-d H:i:s").$this->seed." : ".$str."\n");
+        echo "<h1>".$this->endpointName." Types</h1>";
+        echo "<pre>";print_r($this->client->__getTypes());echo "</pre>";
     }
 }
-
 ?>
