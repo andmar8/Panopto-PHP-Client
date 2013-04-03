@@ -65,17 +65,8 @@ Key -> Supported API versions - *response type* **Web Service Method**([&lt;para
 
 ### UserManagement
 
-4.0/4.2 - ** ****()
+4.0/4.2 - *GetUsersResponse* **GetUsers**()
 
-4.0/4.2 - ** ****()
-
-4.0/4.2 - ** ****()
-
-4.0/4.2 - ** ****()
-
-4.0/4.2 - ** ****()
-
-4.0/4.2 - ** ****()
 
 How to use /soapDocs (if you want to!)
 --------------------------------------
