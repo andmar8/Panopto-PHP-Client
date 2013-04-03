@@ -19,11 +19,15 @@ The code is split into several sections:
 Endpoints and metods implemented:
 ----------------------
 
+Key -> *response* **Web Service Method**([&lt;parameters&gt;,....])
+
 ### AccessManagement
 
 *GetFolderAccessDetails* **getFolderAccessDetails**(&lt;folder id as a string&gt;) - 4.0/4.2
 
 ### Authentication
+
+*LogOnWithExternalProvider* **logOnWithExternalProvider**(&lt;folder id as a string&gt;) - 4.0/4.2
 
 ### RemoteRecorder
 
