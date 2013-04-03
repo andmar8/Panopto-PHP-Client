@@ -16,10 +16,12 @@ The code is split into several sections:
 * /logger: A small class to easily insert DEBUG logging
 * /soapDocs: This shows you the soapPHP's view of the API, you can see lists of methods and objects
 
-Endpoints implemented:
+Endpoints and metods implemented:
 ----------------------
 
 ### AccessManagement
+
+*GetFolderAccessDetails* **getFolderAccessDetails**(<folder id as a string>) - 4.0/4.2
 
 ### Authentication
 
