@@ -11,10 +11,28 @@ The code is split into several sections:
 * /includes/dataObjects/objects: PHP implementations of the Panopto API Version 4.0 objects
 * /includes/dataObjects/objects/requests: Panopto API Version 4.0 parameter objects used to pass requests to the API
 * /includes/dataObjects/objects/responses: Panopto API Version 4.0 return type objects used to receieve responses from the API
-* /includes/impl/X.X/client: Versioned implementations of clients to the various Panopto Endpoints
+* /includes/impl/4.X/client: Versioned implementations of clients to the various Panopto Endpoints
 * /includes/impl/4.2/dataObjects: Extra request and response objects used in the new version of the API; where compatible, the 4.2 client still uses the original 4.0 API objects under /includes/dataObjects/
 * /logger: A small class to easily insert DEBUG logging into a file, you can vardump or just log a string, everything is date and timestamped :)
 * /soapDocs: This shows you the soapPHP's view of the API, you can see lists of methods and objects
+
+Using the code
+--------------
+
+Copy this code into your PHP working directory and include a client for the version and endpoint you want to talk to (under /includes/impl/4.X/client/), then create an AuthenticationInfo object and populate with  user/pass details and then create a mew
+instance of the endpoint you want to talk to passing the server url and auth details....
+
+<code>
+	require_once(dirname(__FILE__)."/includes/client/impl/AccessManagementClient.php");
+	error_reporting(E_ALL);
+	date_default_timezone_set("Europe/London");
+
+	$server = "panoptoserver.url.here";
+	$auth = new AuthenticationInfo("user","password",null);
+	$AMClient = new AccessManagementClient($server, $auth);
+</code>
+
+Using the client object you can then directly call the methods (outlined below)...
 
 Endpoints and methods implemented:
 ----------------------
