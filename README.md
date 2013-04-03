@@ -32,29 +32,49 @@ Key -> Supported API versions - *response type* **Web Service Method**([&lt;para
 ### RemoteRecorder
 
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**()
+
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
+
 4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**()
+
 4.0/4.2 - *Boolean(? needs checking)* **scheduleNewRecurringRecording**()
+
 4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**()
+
 4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**()
-4.2 - *NULL(? needs checking)* **setRemoteRecorderExternalId**()
+
+4.2 - **setRemoteRecorderExternalId**()
 
 ### SessionManagement
 
-4.0/4.2 - ** ****()
-4.0/4.2 - ** ****()
-4.0/4.2 - ** ****()
-4.0/4.2 - ** ****()
-4.0/4.2 - ** ****()
-4.0/4.2 - ** ****()
+4.0/4.2 - *AddFolderResponse* **addFolder**()
+
+4.0/4.2 - *AddSessionResponse* **addSession**()
+
+4.0/4.2 - **deleteSessions**()
+
+4.2 - *GetFoldersByExternalIdResponse* **getFoldersByExternalId**()
+
+4.0/4.2 - *GetFoldersListResponse* **getFoldersList**()
+
+4.2 - *GetSessionsByExternalIdResponse* **getSessionsByExternalId**()
+
+4.0/4.2 - *GetSessionsListResponse* **getSessionsList**()
+
+4.2 - **updateSessionExternalId**()
 
 ### UserManagement
 
 4.0/4.2 - ** ****()
+
 4.0/4.2 - ** ****()
+
 4.0/4.2 - ** ****()
+
 4.0/4.2 - ** ****()
+
 4.0/4.2 - ** ****()
+
 4.0/4.2 - ** ****()
 
 How to use /soapDocs (if you want to!)
