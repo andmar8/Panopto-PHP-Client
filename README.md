@@ -19,7 +19,7 @@ The code is split into several sections:
 Endpoints and methods implemented:
 ----------------------
 
-Key -> *response* **Web Service Method**([&lt;parameters&gt;,....])
+Key -> Supported API versions - *response type* **Web Service Method**([&lt;parameters&gt;,....])
 
 ### AccessManagement
 
