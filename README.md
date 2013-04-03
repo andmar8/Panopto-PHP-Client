@@ -21,8 +21,8 @@ Using the code
 
 Copy this code into your PHP working directory and include a client for the version and endpoint you want to talk to (under /includes/impl/4.X/client/), then create an AuthenticationInfo object and populate with  user/pass details and then create a mew
 instance of the endpoint you want to talk to passing the server url and auth details....
-
-<code>
+hghihuih
+<pre>
 	require_once(dirname(__FILE__)."/includes/client/impl/AccessManagementClient.php");
 	error_reporting(E_ALL);
 	date_default_timezone_set("Europe/London");
@@ -30,7 +30,7 @@ instance of the endpoint you want to talk to passing the server url and auth det
 	$server = "panoptoserver.url.here";
 	$auth = new AuthenticationInfo("user","password",null);
 	$AMClient = new AccessManagementClient($server, $auth);
-</code>
+</pre>
 
 Using the client object you can then directly call the methods (outlined below)...
 
