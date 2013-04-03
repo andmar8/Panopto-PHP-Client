@@ -21,7 +21,7 @@ Endpoints and metods implemented:
 
 ### AccessManagement
 
-*GetFolderAccessDetails* **getFolderAccessDetails**(<folder id as a string>) - 4.0/4.2
+*GetFolderAccessDetails* **getFolderAccessDetails**(&lt;folder id as a string&lt;) - 4.0/4.2
 
 ### Authentication
 
