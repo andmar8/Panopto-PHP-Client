@@ -16,24 +16,62 @@ The code is split into several sections:
 * /logger: A small class to easily insert DEBUG logging
 * /soapDocs: This shows you the soapPHP's view of the API, you can see lists of methods and objects
 
-Endpoints and metods implemented:
+Endpoints and methods implemented:
 ----------------------
 
 Key -> *response* **Web Service Method**([&lt;parameters&gt;,....])
 
 ### AccessManagement
 
-*GetFolderAccessDetails* **getFolderAccessDetails**(&lt;folder id as a string&gt;) - 4.0/4.2
+4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(&lt;folder id as a string&gt;)
 
 ### Authentication
 
-*LogOnWithExternalProvider* **logOnWithExternalProvider**(&lt;folder id as a string&gt;) - 4.0/4.2
+4.0/4.2 - *Boolean(? needs checking)* **logOnWithExternalProvider**(&lt;User Key as a string&gt;,&lt;Authentication code as a string&gt;)
 
 ### RemoteRecorder
 
+4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**()
+
+4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
+
+4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**()
+
+4.0/4.2 - *Boolean(? needs checking)* **scheduleNewRecurringRecording**()
+
+4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**()
+
+4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**()
+
+4.2 - *NULL(? needs checking)* **setRemoteRecorderExternalId**()
+
 ### SessionManagement
 
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
 ### UserManagement
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
+
+4.0/4.2 - ** ****()
 
 How to use /soapDocs (if you want to!)
 --------------------------------------
