@@ -4,6 +4,7 @@ Panopto-PHP-Client
 This is a standalone PHP client to Panopto API's 4.0 and 4.2, 4.2 is what is used in the PanoptoBookingEngine and is therefore slightly more mature.
 
 The code is split into several sections:
+----------------------------------------
 
 * /includes/client: Abstract client
 * /includes/commons: Useful/repeatedly used code
@@ -16,6 +17,7 @@ The code is split into several sections:
 * /soapDocs: This shows you the soapPHP's view of the API, you can see lists of methods and objects
 
 Endpoints implemented:
+----------------------
 
 * AccessManagement
 * Authentication
@@ -24,6 +26,7 @@ Endpoints implemented:
 * UserManagement
 
 How to use /soapDocs (if you want to!)
+--------------------------------------
 
 * Browser to either index file
 * You now need to specify which endpoint you want information for...
