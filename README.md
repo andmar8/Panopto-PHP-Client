@@ -56,23 +56,23 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 ### AccessManagement
 
-4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(
+4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) Folder id&gt;)
 
 ### Authentication
 
-4.0/4.2 - **logOnWithExternalProvider**(
+4.0/4.2 - **logOnWithExternalProvider**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) User Key&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) Authentication code&gt;)
 
 ### RemoteRecorder
 
-4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**(
+4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The external Id of the remote recorder you want to fetch&gt;)
 
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
 
-4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(
+4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *Pagination* ) Pagination settings for the response&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The field you want to sort by&gt;)
 
