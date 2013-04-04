@@ -71,14 +71,13 @@ Please take this as complementary to the official Panopto API (which has slightl
 4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(&lt;( *Pagination* ) Pagination settings for the response&gt;,&lt;( *String* ) The field you want to sort by&gt;)
 
 4.0/4.2 - **scheduleNewRecurringRecording**(<br/>
-&lt;( *String* ) Name of the recording&gt;,<br/>
-&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,<br/>
-&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime&gt;,<br/>
-&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,<br/>
-&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,<br/>
-&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,<br/>
-&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;<br/>
-)
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) Name of the recording&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
 4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(&lt;( *String* ) Name of the recording&gt;,&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime as a string&gt;,&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
