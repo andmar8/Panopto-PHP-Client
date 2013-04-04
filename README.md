@@ -85,26 +85,26 @@ Please take this as complementary to the official Panopto API (which has slightl
 &nbsp;&nbsp;&nbsp;&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
-4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) Name of the recording&gt;,
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime as a string&gt;,
-&nbsp;&nbsp;&nbsp;&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,
+4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) Name of the recording&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime as a string&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
-4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) The session Id for the schedule you want to recur&gt;,
-&nbsp;&nbsp;&nbsp;&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,
+4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The session Id for the schedule you want to recur&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) Do you want to add the original schedule Id to the list of recurrance&gt;)
 
-4.2 - **setRemoteRecorderExternalId**(
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) The Id of the remote recorder you want to set its external Id for&gt;,
+4.2 - **setRemoteRecorderExternalId**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The Id of the remote recorder you want to set its external Id for&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The external Id that you want to set&gt;)
 
 ### SessionManagement
 
-4.0/4.2 - *AddFolderResponse* **addFolder**(
+4.0/4.2 - *AddFolderResponse* **addFolder**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) &gt;)
 
 4.0/4.2 - *AddSessionResponse* **addSession**()
