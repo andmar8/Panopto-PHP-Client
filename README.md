@@ -52,6 +52,8 @@ Endpoints and methods implemented:
 
 Key -> Supported API versions - *response type* **Web Service Method**([&lt;parameters&gt;,....])
 
+Please take this as complementary to the official Panopto API (which has slightly more detail)
+
 ### AccessManagement
 
 4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(&lt;folder id as a string&gt;)
@@ -68,11 +70,11 @@ Key -> Supported API versions - *response type* **Web Service Method**([&lt;para
 
 4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(&lt;Pagination object&gt;,&lt;the field you want to sort by as a string&gt;)
 
-4.0/4.2 - *Boolean(? needs checking)* **scheduleNewRecurringRecording**()
+4.0/4.2 - **scheduleNewRecurringRecording**(&lt;Name of the recording as a string&gt;,&lt;Id of the folder the recording will be scheduled into as a string&gt;,&lt;start datetime as a string&gt;,&lt;end datetime as a string&gt;,&lt;Days of the week you want the schedule to recur on as an array&gt;,&lt;The ending date time when you want the schedule to stop recurring as a string&gt;,&lt;RecorderSettings object&gt;,&lt;Whether you want the recording broadcast or not as a boolean&gt;)
 
 4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(&lt;Name of the recording as a string&gt;,&lt;Id of the folder the recording will be scheduled into as a string&gt;,&lt;start datetime as a string&gt;,&lt;end datetime as a string&gt;,&lt;RecorderSettings object&gt;,&lt;Whether you want the recording broadcast or not as a boolean&gt;)
 
-4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**()
+4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(&lt;The session Id for the schedule you want to recur as a string&gt;,&lt;Days of the week you want the schedule to recur on as an array&gt;,&lt;The ending date time when you want the schedule to stop recurring as a string&gt;,&lt;Do you want to add the original schedule Id to the list of recurrance as a boolean&gt;)
 
 4.2 - **setRemoteRecorderExternalId**()
 
