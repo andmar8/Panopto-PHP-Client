@@ -54,6 +54,8 @@ Key -> Supported API versions - *response type* **Web Service Method**([&lt;( *p
 
 Please take this as complementary to the official Panopto API (which has slightly more detail)
 
+Note: I use the "array()", "String" and "Boolean" type to denote the standard primitives in PHP, not any special object I've made, in the case of array(), inside the brackets is the type of objects inserted in the to array, so array(String) denotes "create an array with strings in".
+
 ### AccessManagement
 
 4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(<br/>
@@ -80,7 +82,7 @@ Please take this as complementary to the official Panopto API (which has slightl
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) Name of the recording&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime&gt;,<br/>
-&nbsp;&nbsp;&nbsp;&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Days of the week you want the schedule to recur on&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
@@ -94,7 +96,7 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The session Id for the schedule you want to recur&gt;,<br/>
-&nbsp;&nbsp;&nbsp;&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Days of the week you want the schedule to recur on&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) Do you want to add the original schedule Id to the list of recurrance&gt;)
 
@@ -105,21 +107,35 @@ Please take this as complementary to the official Panopto API (which has slightl
 ### SessionManagement
 
 4.0/4.2 - *AddFolderResponse* **addFolder**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The name of the folder you want to create&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The Id of the folder you want this folder to go into, leave null for the top level&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) If the folder is publically viewable or not&gt;)
+
+4.0/4.2 - *AddSessionResponse* **addSession**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The name of the session you want to add to a folder&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The Id of the folder you want this session to go into&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *Boolean* ) If the session will be broadcast or not&gt;)
+
+4.0/4.2 - **deleteSessions**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Delete all sessions specified in the array of session Id's&gt;)
+
+4.2 - *GetFoldersByExternalIdResponse* **getFoldersByExternalId**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Get all folders specified in the array of folder external Id's&gt;)
+
+4.0/4.2 - *GetFoldersListResponse* **getFoldersList**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *ListFoldersRequest* ) &gt;,<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) &gt;)
 
-4.0/4.2 - *AddSessionResponse* **addSession**()
+4.2 - *GetSessionsByExternalIdResponse* **getSessionsByExternalId**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Get all sessions specified in the array of session external Id's&gt;)
 
-4.0/4.2 - **deleteSessions**()
+4.0/4.2 - *GetSessionsListResponse* **getSessionsList**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *ListSessionsRequest* ) &gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) &gt;)
 
-4.2 - *GetFoldersByExternalIdResponse* **getFoldersByExternalId**()
-
-4.0/4.2 - *GetFoldersListResponse* **getFoldersList**()
-
-4.2 - *GetSessionsByExternalIdResponse* **getSessionsByExternalId**()
-
-4.0/4.2 - *GetSessionsListResponse* **getSessionsList**()
-
-4.2 - **updateSessionExternalId**()
+4.2 - **updateSessionExternalId**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The Id of the session you want to set its external Id for&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) The external Id that you want to set&gt;)
 
 ### UserManagement
 
