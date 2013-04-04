@@ -139,7 +139,8 @@ Note: I use the "array()", "String" and "Boolean" type to denote the standard pr
 
 ### UserManagement
 
-4.0/4.2 - *GetUsersResponse* **GetUsers**()
+4.0/4.2 - *GetUsersResponse* **GetUsers**(<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Get all users specified in the array of user Id's&gt;)
 
 
 How to use /soapDocs (if you want to!)
