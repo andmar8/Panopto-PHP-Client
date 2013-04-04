@@ -64,7 +64,7 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 ### RemoteRecorder
 
-4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**(&lt;( _String_ ) The external Id of the remote recorder you want to fetch&gt;)
+4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**(&lt;(_String_) The external Id of the remote recorder you want to fetch&gt;)
 
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
 
