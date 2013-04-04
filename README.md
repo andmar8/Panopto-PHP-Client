@@ -64,7 +64,7 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 ### RemoteRecorder
 
-4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**()
+4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecorderByExternalId**(&lt;(*String*) The external Id of the remote recorder you want to fetch&gt;)
 
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
 
@@ -76,7 +76,7 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(&lt;The session Id for the schedule you want to recur as a string&gt;,&lt;Days of the week you want the schedule to recur on as an array&gt;,&lt;The ending date time when you want the schedule to stop recurring as a string&gt;,&lt;Do you want to add the original schedule Id to the list of recurrance as a boolean&gt;)
 
-4.2 - **setRemoteRecorderExternalId**()
+4.2 - **setRemoteRecorderExternalId**(&lt;The Id of the remote recorder you want to set its external Id for as a string&gt;,&lt;The external Id that you want to set as a string&gt;)
 
 ### SessionManagement
 
