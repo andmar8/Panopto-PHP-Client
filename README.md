@@ -56,11 +56,11 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 ### AccessManagement
 
-4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(&lt;folder id as a string&gt;)
+4.0/4.2 - *GetFolderAccessDetailsResponse* **getFolderAccessDetails**(&lt;( *String* ) Folder id&gt;)
 
 ### Authentication
 
-4.0/4.2 - **logOnWithExternalProvider**(&lt;User Key as a string&gt;,&lt;Authentication code as a string&gt;)
+4.0/4.2 - **logOnWithExternalProvider**(&lt;( *String* ) User Key&gt;,&lt;( *String* ) Authentication code&gt;)
 
 ### RemoteRecorder
 
@@ -68,15 +68,15 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
 
-4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(&lt;Pagination object&gt;,&lt;the field you want to sort by as a string&gt;)
+4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(&lt;( *Pagination* ) Pagination settings for the response&gt;,&lt;( *String* ) The field you want to sort by&gt;)
 
-4.0/4.2 - **scheduleNewRecurringRecording**(&lt;Name of the recording as a string&gt;,&lt;Id of the folder the recording will be scheduled into as a string&gt;,&lt;start datetime as a string&gt;,&lt;end datetime as a string&gt;,&lt;Days of the week you want the schedule to recur on as an array&gt;,&lt;The ending date time when you want the schedule to stop recurring as a string&gt;,&lt;RecorderSettings object&gt;,&lt;Whether you want the recording broadcast or not as a boolean&gt;)
+4.0/4.2 - **scheduleNewRecurringRecording**(&lt;( *String* ) Name of the recording&gt;,&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime&gt;,&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
-4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(&lt;Name of the recording as a string&gt;,&lt;Id of the folder the recording will be scheduled into as a string&gt;,&lt;start datetime as a string&gt;,&lt;end datetime as a string&gt;,&lt;RecorderSettings object&gt;,&lt;Whether you want the recording broadcast or not as a boolean&gt;)
+4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(&lt;( *String* ) Name of the recording&gt;,&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime as a string&gt;,&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
-4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(&lt;The session Id for the schedule you want to recur as a string&gt;,&lt;Days of the week you want the schedule to recur on as an array&gt;,&lt;The ending date time when you want the schedule to stop recurring as a string&gt;,&lt;Do you want to add the original schedule Id to the list of recurrance as a boolean&gt;)
+4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**(&lt;( *String* ) The session Id for the schedule you want to recur&gt;,&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,&lt;( *Boolean* ) Do you want to add the original schedule Id to the list of recurrance&gt;)
 
-4.2 - **setRemoteRecorderExternalId**(&lt;The Id of the remote recorder you want to set its external Id for as a string&gt;,&lt;The external Id that you want to set as a string&gt;)
+4.2 - **setRemoteRecorderExternalId**(&lt;( *String* ) The Id of the remote recorder you want to set its external Id for&gt;,&lt;( *String* ) The external Id that you want to set&gt;)
 
 ### SessionManagement
 
