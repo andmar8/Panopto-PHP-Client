@@ -123,15 +123,15 @@ Note: I use the "array()", "String" and "Boolean" type to denote the standard pr
 &nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Get all folders specified in the array of folder external Id's&gt;)
 
 4.0/4.2 - *GetFoldersListResponse* **getFoldersList**(<br/>
-&nbsp;&nbsp;&nbsp;&lt;( *ListFoldersRequest* ) &gt;,<br/>
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) &gt;)
+&nbsp;&nbsp;&nbsp;&lt;( *ListFoldersRequest* ) Specifies all the settings for how the response will be formatted&gt;,<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) A simple search query&gt;)
 
 4.2 - *GetSessionsByExternalIdResponse* **getSessionsByExternalId**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *array(String)* ) Get all sessions specified in the array of session external Id's&gt;)
 
 4.0/4.2 - *GetSessionsListResponse* **getSessionsList**(<br/>
-&nbsp;&nbsp;&nbsp;&lt;( *ListSessionsRequest* ) &gt;<br/>
-&nbsp;&nbsp;&nbsp;&lt;( *String* ) &gt;)
+&nbsp;&nbsp;&nbsp;&lt;( *ListSessionsRequest* ) Specifies all the settings for how the response will be formatted&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;( *String* ) A simple search query&gt;)
 
 4.2 - **updateSessionExternalId**(<br/>
 &nbsp;&nbsp;&nbsp;&lt;( *String* ) The Id of the session you want to set its external Id for&gt;,<br/>
