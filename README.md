@@ -38,6 +38,13 @@ instance of the endpoint you want to talk to passing the server url and auth det
 
 Using the client object you can then directly call the methods (outlined below)...
 
+What are the dataObjects, requests and response objects for?
+------------------------------------------------------------
+
+Essentially these objects wrap the XML returned and required by the panopto endpoints in PHP objects, most are basically public access variables inside a class. This could probably be cleaned up to make it a little stricter "OO" but in some instances the variables need to be public access to be set by the soap library.
+
+Ultimately what this gives you is the ability to work "only" with objects and abstracts the (often) ugliness of dealing with web services.
+
 Endpoints and methods implemented:
 ----------------------
 
