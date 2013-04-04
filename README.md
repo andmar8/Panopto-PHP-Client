@@ -3,6 +3,10 @@ Panopto-PHP-Client
 
 This is a standalone PHP client to Panopto API's 4.0 and 4.2, 4.2 is what is used in the PanoptoBookingEngine and is therefore slightly more mature. You shouldn't mix and match clients, user either 4.0 or 4.2.
 
+This client does not support the whole API, but using a combination of the pattern used here and the soap docs functionality it would be fairly straight forward to add the missing functionality.
+
+As of yet, the API for 4.3 has not been tested but should work, however we will need to update our copy of the source when we upgrade to 4.3 so an updated version should appear here at some point.
+
 The code is split into several sections:
 ----------------------------------------
 
