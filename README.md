@@ -50,7 +50,7 @@ Using the client object you can then directly call the methods (outlined below).
 Endpoints and methods implemented:
 ----------------------
 
-Key -> Supported API versions - *response type* **Web Service Method**([&lt;parameters&gt;,....])
+Key -> Supported API versions - *response type* **Web Service Method**([&lt;( *parameter type* ) parameter&gt;,....])
 
 Please take this as complementary to the official Panopto API (which has slightly more detail)
 
@@ -70,7 +70,23 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(&lt;( *Pagination* ) Pagination settings for the response&gt;,&lt;( *String* ) The field you want to sort by&gt;)
 
-4.0/4.2 - **scheduleNewRecurringRecording**(&lt;( *String* ) Name of the recording&gt;,&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime&gt;,&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
+4.0/4.2 - **scheduleNewRecurringRecording**(
+
+&lt;( *String* ) Name of the recording&gt;,
+
+&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,
+
+&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime&gt;,
+
+&lt;( *ArrayOfString* ) Days of the week you want the schedule to recur on&gt;,
+
+&lt;( *String* ) The ending date time when you want the schedule to stop recurring&gt;,
+
+&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,
+
+&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;
+
+)
 
 4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(&lt;( *String* ) Name of the recording&gt;,&lt;( *String* ) Id of the folder the recording will be scheduled into&gt;,&lt;( *String* ) Start datetime&gt;,&lt;( *String* ) End datetime as a string&gt;,&lt;( *RecorderSettings* ) Specifies the settings for the recorders used for the recordings being scheduled&gt;,&lt;( *Boolean* ) Whether you want the recording broadcast or not&gt;)
 
@@ -80,7 +96,7 @@ Please take this as complementary to the official Panopto API (which has slightl
 
 ### SessionManagement
 
-4.0/4.2 - *AddFolderResponse* **addFolder**()
+4.0/4.2 - *AddFolderResponse* **addFolder**(&lt;( *String* ) &gt;)
 
 4.0/4.2 - *AddSessionResponse* **addSession**()
 
