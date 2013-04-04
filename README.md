@@ -20,6 +20,13 @@ The code is split into several sections:
 * /logger: A small class to easily insert DEBUG logging into a file, you can vardump or just log a string, everything is date and timestamped :)
 * /soapDocs: This shows you the soapPHP's view of the API, you can see lists of methods and objects
 
+What are the dataObjects, requests and response objects for?
+------------------------------------------------------------
+
+Essentially these objects wrap the XML returned and required by the panopto endpoints in PHP objects, most are basically public access variables inside a class. This could probably be cleaned up to make it a little stricter "OO" but in some instances the variables need to be public access to be set by the soap library.
+
+Ultimately what this gives you is the ability to work "only" with objects and abstracts the (often) ugliness of dealing with web services.
+
 Using the code
 --------------
 
@@ -36,14 +43,9 @@ instance of the endpoint you want to talk to passing the server url and auth det
 	$AMClient = new AccessManagementClient($server, $auth);
 </pre>
 
+You should not need to include the dataObject, request and reponse object's in your code after you have included a client as all the dependancies should be included in the client.
+
 Using the client object you can then directly call the methods (outlined below)...
-
-What are the dataObjects, requests and response objects for?
-------------------------------------------------------------
-
-Essentially these objects wrap the XML returned and required by the panopto endpoints in PHP objects, most are basically public access variables inside a class. This could probably be cleaned up to make it a little stricter "OO" but in some instances the variables need to be public access to be set by the soap library.
-
-Ultimately what this gives you is the ability to work "only" with objects and abstracts the (often) ugliness of dealing with web services.
 
 Endpoints and methods implemented:
 ----------------------
@@ -56,7 +58,7 @@ Key -> Supported API versions - *response type* **Web Service Method**([&lt;para
 
 ### Authentication
 
-4.0/4.2 - *Boolean(? needs checking)* **logOnWithExternalProvider**(&lt;User Key as a string&gt;,&lt;Authentication code as a string&gt;)
+4.0/4.2 - **logOnWithExternalProvider**(&lt;User Key as a string&gt;,&lt;Authentication code as a string&gt;)
 
 ### RemoteRecorder
 
@@ -64,11 +66,11 @@ Key -> Supported API versions - *response type* **Web Service Method**([&lt;para
 
 4.2 - *GetRemoteRecordersByExternalIdResponse* **getRemoteRecordersByExternalId**()
 
-4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**()
+4.0/4.2 - *GetListRecordersResponse* **getRemoteRecordersList**(&lt;Pagination object&gt;,&lt;the field you want to sort by as a string&gt;)
 
 4.0/4.2 - *Boolean(? needs checking)* **scheduleNewRecurringRecording**()
 
-4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**()
+4.0/4.2 - *ScheduleRecordingResponse* **scheduleRecording**(&lt;Name of the recording as a string&gt;,&lt;Id of the folder the recording will be scheduled into as a string&gt;,&lt;start datetime as a string&gt;,&lt;end datetime as a string&gt;,&lt;RecorderSettings object&gt;,&lt;Whether you want the recording broadcast or not as a boolean&gt;)
 
 4.0/4.2 - *ScheduleRecurringRecordingResponse* **scheduleRecurringRecording**()
 
