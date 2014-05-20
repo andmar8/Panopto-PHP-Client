@@ -25,7 +25,7 @@ class ListRecorders
     public $pagination;
     public $sortBy;
     
-    public function __construct($auth,$pagination,$sortBy)
+    public function __construct($auth, Pagination $pagination, $sortBy)
     {
         $this->auth = $auth;
         $this->pagination = $pagination;
