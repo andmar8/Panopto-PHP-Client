@@ -35,7 +35,7 @@ class ListRecordersResponse
         {
             $this->recorders[] = $this->addRemoteRecorder($results->RemoteRecorder);
         }
-        $this->numberOfFolders = $totalNumberResults;
+        $this->numberOfRecorders = $totalNumberResults;
     }
     
     private function addRemoteRecorder($remoteRecorder)
