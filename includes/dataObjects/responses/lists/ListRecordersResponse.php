@@ -43,6 +43,7 @@ class ListRecordersResponse
         return new RemoteRecorder(
                         $remoteRecorder->Devices
                         ,$remoteRecorder->Id
+                        ,$remoteRecorder->ExternalId
                         ,$remoteRecorder->MachineIP
                         ,$remoteRecorder->Name
                         ,$remoteRecorder->PreviewUrl

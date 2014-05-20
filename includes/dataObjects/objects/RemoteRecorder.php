@@ -23,6 +23,7 @@ class RemoteRecorder
 {
     public $Devices;
     public $Id;
+    public $ExternalId;
     public $MachineIP;
     public $Name;
     public $PreviewUrl;
@@ -30,10 +31,11 @@ class RemoteRecorder
     public $SettingsUrl;
     public $State;
 
-    public function __construct($devices,$id,$machineIP,$name,$previewUrl,$scheduledRecordings,$settingsUrl,$state)
+    public function __construct($devices,$id,$externalId,$machineIP,$name,$previewUrl,$scheduledRecordings,$settingsUrl,$state)
     {
         $this->Devices = new ArrayOfRemoteRecorderDevice($devices);
         $this->Id = $id;
+        $this->ExternalId = $externalId;
         $this->MachineIP = $machineIP;
         $this->Name = $name;
         $this->PreviewUrl = $previewUrl;
@@ -47,6 +49,10 @@ class RemoteRecorder
 
     public function getId() {
         return $this->Id;
+    }
+
+    public function getExternalId() {
+        return $this->ExternalId;
     }
 
     public function getMachineIP() {

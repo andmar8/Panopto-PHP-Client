@@ -35,7 +35,7 @@ class GetRemoteRecordersByExternalIdResponse
 
     public function getRemoteRecorder($rr = null)
     {
-        $rrReturn = new RemoteRecorder(null,null,null,null,null,null,null,null);
+        $rrReturn = new RemoteRecorder(null,null,null,null,null,null,null,null,null);
         if($rr==null)
         {
             $rr = $this->GetRemoteRecordersByExternalIdResult->RemoteRecorder;
@@ -43,7 +43,7 @@ class GetRemoteRecordersByExternalIdResponse
         if($rr!=null)
         {
             //var_dump($rr);
-            $rrReturn = new RemoteRecorder($rr->Devices,$rr->Id,$rr->MachineIP,$rr->Name,$rr->PreviewUrl,$rr->ScheduledRecordings,$rr->SettingsUrl,$rr->State);
+            $rrReturn = new RemoteRecorder($rr->Devices,$rr->Id,$rr->ExternalId,$rr->MachineIP,$rr->Name,$rr->PreviewUrl,$rr->ScheduledRecordings,$rr->SettingsUrl,$rr->State);
         }
         return $rrReturn;
     }
