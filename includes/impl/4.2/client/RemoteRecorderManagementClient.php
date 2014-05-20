@@ -34,6 +34,7 @@
     require_once($panoptoClientRoot."/dataObjects/requests/sortModifiers/RecorderSortField.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/ArrayOfString.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetRemoteRecordersByExternalId.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetRemoteRecordersById.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/UpdateRemoteRecorderExternalId.php");
     //Responses
     require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
@@ -43,6 +44,7 @@
     require_once($panoptoClientRoot."/dataObjects/responses/ScheduleRecurringRecordingResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/ArrayOfRemoteRecorder.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetRemoteRecordersByExternalIdResponse.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetRemoteRecordersByIdResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/ScheduleRecordingResponse.php");
 
 class RemoteRecorderManagementClient extends AbstractPanoptoClient
@@ -63,6 +65,16 @@ class RemoteRecorderManagementClient extends AbstractPanoptoClient
     public function getRemoteRecordersByExternalId(ArrayOfString $externalIds)
     {
         return new GetRemoteRecordersByExternalIdResponse($this->client->GetRemoteRecordersByExternalId(new GetRemoteRecordersByExternalId($this->auth, $externalIds)));
+    }
+
+    public function getRemoteRecorderById($remoteRecorderIds)
+    {
+        return new GetRemoteRecordersByIdResponse($this->client->GetRemoteRecordersById(new GetRemoteRecordersById($this->auth,new ArrayOfGuid($remoteRecorderIds))));
+    }
+
+    public function getRemoteRecordersById(ArrayOfGuid $remoteRecorderIds)
+    {
+        return new GetRemoteRecordersByIdResponse($this->client->GetRemoteRecordersById(new GetRemoteRecordersById($this->auth, $remoteRecorderIds)));
     }
 
     public function getRemoteRecordersList(Pagination $pagination, $sortBy = null)
