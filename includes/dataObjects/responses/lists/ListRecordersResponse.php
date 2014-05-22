@@ -27,15 +27,15 @@ class ListRecordersResponse
     public function __construct($results,$totalNumberResults)
     {
         $this->recorders = array();
-        if($totalNumberResults>1)
+        if(is_array($results->RemoteRecorder))
         {
             foreach($results->RemoteRecorder as $remoteRecorder){$this->recorders[] = $this->addRemoteRecorder($remoteRecorder);}
         }
-        else if($totalNumberResults==1)
+        else if(is_object($results->RemoteRecorder))
         {
             $this->recorders[] = $this->addRemoteRecorder($results->RemoteRecorder);
         }
-        $this->numberOfFolders = $totalNumberResults;
+        $this->numberOfRecorders = $totalNumberResults;
     }
     
     private function addRemoteRecorder($remoteRecorder)
@@ -43,6 +43,7 @@ class ListRecordersResponse
         return new RemoteRecorder(
                         $remoteRecorder->Devices
                         ,$remoteRecorder->Id
+                        ,$remoteRecorder->ExternalId
                         ,$remoteRecorder->MachineIP
                         ,$remoteRecorder->Name
                         ,$remoteRecorder->PreviewUrl
