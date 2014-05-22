@@ -131,7 +131,7 @@ class RemoteRecorderManagementClient extends AbstractPanoptoClient
      */
     public function setRemoteRecorderExternalId($remoteRecorderId, $externalId)
     {
-        return $this->client->UpdateRemoteRecorderExternalId(new UpdateRemoteRecorderExternalId($auth, $remoteRecorderId, $externalId));
+        return $this->client->UpdateRemoteRecorderExternalId(new UpdateRemoteRecorderExternalId($this->auth, $remoteRecorderId, $externalId));
     }
 }
 
