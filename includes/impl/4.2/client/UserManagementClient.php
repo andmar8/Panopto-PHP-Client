@@ -26,8 +26,10 @@
     require_once($panoptoClientRoot."/dataObjects/objects/User.php");
     //Requests
     require_once($panoptoClientRoot."/dataObjects/requests/GetUsers.php");
+    require_once($panoptoClientRoot."/dataObjects/requests/GetUserByKey.php");
     //Responses
     require_once($panoptoClientRoot."/dataObjects/responses/GetUsersResponse.php");
+    require_once($panoptoClientRoot."/dataObjects/responses/GetUserByKeyResponse.php");
     require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
 
 class UserManagementClient extends AbstractPanoptoClient
@@ -43,6 +45,11 @@ class UserManagementClient extends AbstractPanoptoClient
     public function GetUsers($userIds)
     {
         try{return new GetUsersResponse($this->client->GetUsers(new GetUsers($this->auth, new ArrayOfGuid($userIds))));}catch(Exception $e){/*echo $e->getMessage();*/}
+    }
+
+    public function GetUserByKey($userKey)
+    {
+        return new GetUserByKeyResponse($this->client->GetUserByKey(new GetUserByKey($this->auth, $userKey)));
     }
 }
 
