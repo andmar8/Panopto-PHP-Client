@@ -47,7 +47,6 @@ class SessionManagementClient extends AbstractPanoptoClient
         $this->auth = $auth;
         $this->endpointName = "SessionManagement";
         $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.0/SessionManagement.svc?wsdl");
-        $this->logger = new Logger("/tmp/SessionManagement4.2.log");
     }
 
     public function addFolder($name, $parentFolder = null, $isPublic = false)

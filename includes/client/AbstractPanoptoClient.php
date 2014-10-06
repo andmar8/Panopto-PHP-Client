@@ -38,5 +38,12 @@ abstract class AbstractPanoptoClient
         echo "<h1>".$this->endpointName." Types</h1>";
         echo "<pre>";print_r($this->client->__getTypes());echo "</pre>";
     }
+
+    public function log($string)
+    {
+        if (is_a($this->logger, 'Logger')) {
+            $this->logger->log($string);
+        }
+    }
 }
 ?>

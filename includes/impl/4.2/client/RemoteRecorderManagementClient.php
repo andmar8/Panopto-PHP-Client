@@ -48,12 +48,14 @@
 
 class RemoteRecorderManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array())
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array(), $logenabled = true)
     {
         $this->auth = $auth;
         $this->endpointName = "RemoteRecorderManagement";
         $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl", $soapoptions);
-        $this->logger = new Logger("/tmp/RemoteRecorderManagement4.2.log");
+        if ($logenabled) {
+            $this->logger = new Logger("/tmp/RemoteRecorderManagement4.2.log");
+        }
     }
 
     public function getRemoteRecorderByExternalId($externalIds)
@@ -83,7 +85,7 @@ class RemoteRecorderManagementClient extends AbstractPanoptoClient
     
     public function scheduleRecording($name, $folderId, $start, $end, $recorderSettings, $isBroadcast = false)
     {
-        $this->logger->log($name." ".$folderId." ".$start." ".$end." ".$recorderSettings." ".$isBroadcast);
+        $this->log($name." ".$folderId." ".$start." ".$end." ".$isBroadcast);
         return new ScheduleRecordingResponse($this->client->ScheduleRecording(new ScheduleRecording($this->auth, $name, $folderId, $isBroadcast, $start, $end, $recorderSettings)));
     }
 

@@ -34,12 +34,14 @@
 
 class UserManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array())
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array(), $logenabled = true)
     {
         $this->auth = $auth;
         $this->endpointName = "UserManagement";
         $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/UserManagement.svc?wsdl", $soapoptions);
-        $this->logger = new Logger("/tmp/UserManagement4.2.log");
+        if ($logenabled) {
+            $this->logger = new Logger("/tmp/UserManagement4.2.log");
+        }
     }
 
     public function GetUsers($userIds)
