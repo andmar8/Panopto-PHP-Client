@@ -67,7 +67,7 @@ class SessionManagementClient extends AbstractPanoptoClient
 
     public function deleteSessions($sessionIds)
     {
-        $this->client->DeleteSessions(new DeleteSessions($this->auth,$sessionIds));
+        $this->client->DeleteSessions(new DeleteSessions($this->auth, new ArrayOfGuid($sessionIds)));
     }
 
     public function getFoldersByExternalId($externalIds)
