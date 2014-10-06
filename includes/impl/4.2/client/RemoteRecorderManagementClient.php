@@ -49,11 +49,11 @@
 
 class RemoteRecorderManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth)
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array())
     {
         $this->auth = $auth;
         $this->endpointName = "RemoteRecorderManagement";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl", $soapoptions);
         $this->logger = new Logger("/tmp/RemoteRecorderManagement4.2.log");
     }
 

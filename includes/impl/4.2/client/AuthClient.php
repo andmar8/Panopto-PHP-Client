@@ -26,11 +26,11 @@
 
 class AuthClient extends AbstractPanoptoClient
 {
-    public function __construct($server/*, AuthenticationInfo $auth*/)
+    public function __construct($server, $soapoptions = array())
     {
         //$this->auth = $auth;
         $this->endpointName = "Auth";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/Auth.svc?wsdl");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/Auth.svc?wsdl", $soapoptions);
     }
     
     public function logOnWithExternalProvider($userKey,$authCode)

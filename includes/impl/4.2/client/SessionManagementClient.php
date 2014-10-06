@@ -47,11 +47,11 @@
 
 class SessionManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth)
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array())
     {
         $this->auth = $auth;
         $this->endpointName = "SessionManagement";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/SessionManagement.svc?wsdl");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/SessionManagement.svc?wsdl", $soapoptions);
         $this->logger = new Logger("/tmp/SessionManagement4.2.log");
     }
 

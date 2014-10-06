@@ -32,11 +32,11 @@
 
 class AccessManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth)
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array())
     {
         $this->auth = $auth;
         $this->endpointName = "AccessManagement";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/AccessManagement.svc?wsdl");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/AccessManagement.svc?wsdl", $soapoptions);
     }
     
     public function getFolderAccessDetails($folderId)
