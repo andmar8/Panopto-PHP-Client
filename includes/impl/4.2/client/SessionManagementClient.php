@@ -25,6 +25,7 @@
     require_once($panoptoClientRoot."/dataObjects/objects/Folder.php");
     require_once($panoptoClientRoot."/dataObjects/objects/Pagination.php");
     require_once($panoptoClientRoot."/dataObjects/objects/Session.php");
+    require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     //Requests
     require_once($panoptoClientRoot."/dataObjects/requests/AddFolder.php");
     require_once($panoptoClientRoot."/dataObjects/requests/AddSession.php");
@@ -35,15 +36,17 @@
     require_once($panoptoClientRoot."/dataObjects/requests/sortModifiers/SessionSortField.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetFoldersByExternalId.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetSessionsByExternalId.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetSessionsById.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/UpdateSessionExternalId.php");
     //Responses
     require_once($panoptoClientRoot."/dataObjects/responses/AddFolderResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/AddSessionResponse.php");
-    require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetFoldersListResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetSessionsListResponse.php");
+    require_once($panoptoClientRoot."/dataObjects/responses/GetSessionsResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetFoldersByExternalIdResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetSessionsByExternalIdResponse.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetSessionsByIdResponse.php");
 
 class SessionManagementClient extends AbstractPanoptoClient
 {
@@ -78,6 +81,11 @@ class SessionManagementClient extends AbstractPanoptoClient
     public function getFoldersList(ListFoldersRequest $listFoldersRequest, $searchQuery = null)
     {
         return new GetFoldersListResponse($this->client->GetFoldersList(new GetFoldersList($this->auth, $listFoldersRequest, $searchQuery)));
+    }
+
+    public function getSessionsById($sessionIds)
+    {
+        return new GetSessionsByIdResponse($this->client->GetSessionsById(new GetSessionsById($this->auth,new ArrayOfGuid($sessionIds))));
     }
 
     public function getSessionsByExternalId($externalIds)
