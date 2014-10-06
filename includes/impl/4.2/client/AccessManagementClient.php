@@ -37,6 +37,7 @@ class AccessManagementClient extends AbstractPanoptoClient
         $this->auth = $auth;
         $this->endpointName = "AccessManagement";
         $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/AccessManagement.svc?wsdl", $soapoptions);
+        $this->logger = new Logger("/tmp/AccessManagement4.2.log");
     }
     
     public function getFolderAccessDetails($folderId)
