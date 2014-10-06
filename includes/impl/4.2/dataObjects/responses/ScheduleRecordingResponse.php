@@ -42,6 +42,17 @@ class ScheduleRecordingResponse
     {
         return $this->sessionIDs;
     }
+
+    public function isConflictsExist()
+    {
+        return $this->conflictsExist;
+    }
+
+    public function getConflictingSessions()
+    {
+        return $this->conflictingSessions;
+    }
+
 }
 
 ?>

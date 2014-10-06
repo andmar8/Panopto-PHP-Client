@@ -40,7 +40,6 @@
     require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     require_once($panoptoClientRoot."/dataObjects/responses/ArrayOfRemoteRecorderDevice.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetListRecordersResponse.php");
-//    require_once($panoptoClientRoot."/dataObjects/responses/ScheduleRecordingResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/ScheduleRecurringRecordingResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/ArrayOfRemoteRecorder.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetRemoteRecordersByExternalIdResponse.php");
@@ -85,7 +84,7 @@ class RemoteRecorderManagementClient extends AbstractPanoptoClient
     public function scheduleRecording($name, $folderId, $start, $end, $recorderSettings, $isBroadcast = false)
     {
         $this->logger->log($name." ".$folderId." ".$start." ".$end." ".$recorderSettings." ".$isBroadcast);
-        return /*new ScheduleRecordingResponse(*/$this->client->ScheduleRecording(new ScheduleRecording($this->auth, $name, $folderId, $isBroadcast, $start, $end, $recorderSettings))/*)*/;
+        return new ScheduleRecordingResponse($this->client->ScheduleRecording(new ScheduleRecording($this->auth, $name, $folderId, $isBroadcast, $start, $end, $recorderSettings)));
     }
 
     /**
