@@ -24,10 +24,13 @@
     //Objects
     require_once($panoptoClientRoot."/dataObjects/objects/FolderAccessDetails.php");
     require_once($panoptoClientRoot."/dataObjects/objects/Pagination.php");
+    require_once($panoptoClientRoot."/dataObjects/objects/AccessRole.php");
+    require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     //Requests
     require_once($panoptoClientRoot."/dataObjects/requests/GetFolderAccessDetails.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GrantUsersAccessToFolder.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/RevokeUsersAccessFromFolder.php");
     //Responses
-    require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetFolderAccessDetailsResponse.php");
 
 class AccessManagementClient extends AbstractPanoptoClient
@@ -43,6 +46,16 @@ class AccessManagementClient extends AbstractPanoptoClient
     public function getFolderAccessDetails($folderId)
     {
         return new GetFolderAccessDetailsResponse($this->client->GetFolderAccessDetails(new GetFolderAccessDetails($this->auth,$folderId)));
+    }
+
+    public function grantUsersAccessToFolder($folderId, $userIds, $role)
+    {
+        $this->client->GrantUsersAccessToFolder(new GrantUsersAccessToFolder($this->auth, $folderId, new ArrayOfGuid($userIds), $role));
+    }
+
+    public function revokeUsersAccessFromFolder($folderId, $userIds, $role)
+    {
+        $this->client->RevokeUsersAccessFromFolder(new RevokeUsersAccessFromFolder($this->auth, $folderId, new ArrayOfGuid($userIds), $role));
     }
 }
 
