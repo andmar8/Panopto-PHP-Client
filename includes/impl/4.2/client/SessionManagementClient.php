@@ -38,6 +38,7 @@
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetSessionsByExternalId.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetSessionsById.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/UpdateSessionExternalId.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/UpdateFolderExternalId.php");
     //Responses
     require_once($panoptoClientRoot."/dataObjects/responses/AddFolderResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/AddSessionResponse.php");
@@ -101,6 +102,11 @@ class SessionManagementClient extends AbstractPanoptoClient
     public function updateSessionExternalId($sessionId, $externalId)
     {
         $this->client->UpdateSessionExternalId(new UpdateSessionExternalId($this->auth, $sessionId, $externalId));
+    }
+
+    public function updateFolderExternalId($folderId, $externalId)
+    {
+        $this->client->UpdateFolderExternalId(new UpdateFolderExternalId($this->auth, $folderId, $externalId));
     }
 }
 
