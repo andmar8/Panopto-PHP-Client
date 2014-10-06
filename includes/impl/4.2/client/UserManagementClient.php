@@ -44,7 +44,7 @@ class UserManagementClient extends AbstractPanoptoClient
 
     public function GetUsers($userIds)
     {
-        try{return new GetUsersResponse($this->client->GetUsers(new GetUsers($this->auth, new ArrayOfGuid($userIds))));}catch(Exception $e){/*echo $e->getMessage();*/}
+        return new GetUsersResponse($this->client->GetUsers(new GetUsers($this->auth, new ArrayOfGuid($userIds))));
     }
 
     public function GetUserByKey($userKey)
