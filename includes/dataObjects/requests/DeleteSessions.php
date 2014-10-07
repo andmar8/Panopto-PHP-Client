@@ -24,7 +24,7 @@ class DeleteSessions
     public $auth;
     public $sessionIds;
 
-    public function __construct($auth,$sessionIds)
+    public function __construct($auth, ArrayOfGuid $sessionIds)
     {
         $this->auth = $auth;
         $this->sessionIds = $sessionIds;

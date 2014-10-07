@@ -25,6 +25,7 @@
     require_once($panoptoClientRoot."/dataObjects/objects/Folder.php");
     require_once($panoptoClientRoot."/dataObjects/objects/Pagination.php");
     require_once($panoptoClientRoot."/dataObjects/objects/Session.php");
+    require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     //Requests
     require_once($panoptoClientRoot."/dataObjects/requests/AddFolder.php");
     require_once($panoptoClientRoot."/dataObjects/requests/AddSession.php");
@@ -35,24 +36,29 @@
     require_once($panoptoClientRoot."/dataObjects/requests/sortModifiers/SessionSortField.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetFoldersByExternalId.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetSessionsByExternalId.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/GetSessionsById.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/UpdateSessionExternalId.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/requests/UpdateFolderExternalId.php");
     //Responses
     require_once($panoptoClientRoot."/dataObjects/responses/AddFolderResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/AddSessionResponse.php");
-    require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetFoldersListResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetSessionsListResponse.php");
+    require_once($panoptoClientRoot."/dataObjects/responses/GetSessionsResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetFoldersByExternalIdResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetSessionsByExternalIdResponse.php");
+    require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetSessionsByIdResponse.php");
 
 class SessionManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth)
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array(), $logenabled = true)
     {
         $this->auth = $auth;
         $this->endpointName = "SessionManagement";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/SessionManagement.svc?wsdl");
-        $this->logger = new Logger("/tmp/SessionManagement4.2.log");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/SessionManagement.svc?wsdl", $soapoptions);
+        if ($logenabled) {
+            $this->logger = new Logger("/tmp/SessionManagement4.2.log");
+        }
     }
 
     public function addFolder($name, $parentFolder = null, $isPublic = false)
@@ -67,7 +73,7 @@ class SessionManagementClient extends AbstractPanoptoClient
 
     public function deleteSessions($sessionIds)
     {
-        $this->client->DeleteSessions(new DeleteSessions($this->auth,$sessionIds));
+        $this->client->DeleteSessions(new DeleteSessions($this->auth, new ArrayOfGuid($sessionIds)));
     }
 
     public function getFoldersByExternalId($externalIds)
@@ -78,6 +84,11 @@ class SessionManagementClient extends AbstractPanoptoClient
     public function getFoldersList(ListFoldersRequest $listFoldersRequest, $searchQuery = null)
     {
         return new GetFoldersListResponse($this->client->GetFoldersList(new GetFoldersList($this->auth, $listFoldersRequest, $searchQuery)));
+    }
+
+    public function getSessionsById($sessionIds)
+    {
+        return new GetSessionsByIdResponse($this->client->GetSessionsById(new GetSessionsById($this->auth,new ArrayOfGuid($sessionIds))));
     }
 
     public function getSessionsByExternalId($externalIds)
@@ -93,6 +104,11 @@ class SessionManagementClient extends AbstractPanoptoClient
     public function updateSessionExternalId($sessionId, $externalId)
     {
         $this->client->UpdateSessionExternalId(new UpdateSessionExternalId($this->auth, $sessionId, $externalId));
+    }
+
+    public function updateFolderExternalId($folderId, $externalId)
+    {
+        $this->client->UpdateFolderExternalId(new UpdateFolderExternalId($this->auth, $folderId, $externalId));
     }
 }
 

@@ -25,7 +25,7 @@ class ArrayOfGuid
     
     public function __construct($guid)
     {
-        $this->guid = gettype($guid=="string")?array($guid):$guid;
+        $this->guid = (gettype($guid) == "string") ? array($guid) : $guid;
     }
 
     public function getGuid() {

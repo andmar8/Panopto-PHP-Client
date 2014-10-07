@@ -24,7 +24,7 @@ class GetUsers
     public $auth;
     public $userIds;
 
-    public function __construct($auth,$userIds)
+    public function __construct($auth, ArrayOfGuid $userIds)
     {
         $this->auth = $auth;
         $this->userIds = $userIds;

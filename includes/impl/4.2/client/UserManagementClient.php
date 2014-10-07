@@ -26,23 +26,32 @@
     require_once($panoptoClientRoot."/dataObjects/objects/User.php");
     //Requests
     require_once($panoptoClientRoot."/dataObjects/requests/GetUsers.php");
+    require_once($panoptoClientRoot."/dataObjects/requests/GetUserByKey.php");
     //Responses
     require_once($panoptoClientRoot."/dataObjects/responses/GetUsersResponse.php");
+    require_once($panoptoClientRoot."/dataObjects/responses/GetUserByKeyResponse.php");
     require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
 
 class UserManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth)
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array(), $logenabled = true)
     {
         $this->auth = $auth;
         $this->endpointName = "UserManagement";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/UserManagement.svc?wsdl");
-        $this->logger = new Logger("/tmp/UserManagement4.2.log");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/UserManagement.svc?wsdl", $soapoptions);
+        if ($logenabled) {
+            $this->logger = new Logger("/tmp/UserManagement4.2.log");
+        }
     }
 
     public function GetUsers($userIds)
     {
-        try{return new GetUsersResponse($this->client->GetUsers(new GetUsers($this->auth, new ArrayOfGuid($userIds))));}catch(Exception $e){/*echo $e->getMessage();*/}
+        return new GetUsersResponse($this->client->GetUsers(new GetUsers($this->auth, new ArrayOfGuid($userIds))));
+    }
+
+    public function GetUserByKey($userKey)
+    {
+        return new GetUserByKeyResponse($this->client->GetUserByKey(new GetUserByKey($this->auth, $userKey)));
     }
 }
 

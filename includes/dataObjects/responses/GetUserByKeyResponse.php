@@ -1,41 +1,50 @@
 <?php
     /*
      * This file is part of Panopto-PHP-Client.
-     * 
+     *
      * Panopto-PHP-Client is free software: you can redistribute it and/or modify
      * it under the terms of the GNU General Public License as published by
      * the Free Software Foundation, either version 3 of the License, or
      * (at your option) any later version.
-     * 
+     *
      * Panopto-PHP-Client is distributed in the hope that it will be useful,
      * but WITHOUT ANY WARRANTY; without even the implied warranty of
      * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
      * GNU General Public License for more details.
-     * 
+     *
      * You should have received a copy of the GNU General Public License
      * along with Panopto-PHP-Client.  If not, see <http://www.gnu.org/licenses/>.
-     * 
+     *
      * Copyright: Andrew Martin, Newcastle University
-     * 
+     *
      */
 
-    $panoptoClientRoot = dirname(__FILE__)."/../../..";
-    require_once($panoptoClientRoot."/client/AbstractPanoptoClient.php");
-    //Requests
-    require_once($panoptoClientRoot."/dataObjects/requests/LogOnWithExternalProvider.php");
-
-class AuthClient extends AbstractPanoptoClient
+class GetUserByKeyResponse
 {
-    public function __construct($server, $soapoptions = array())
+    public $GetUserByKeyResult;
+
+    public function __construct($getUserByKeyReponse)
     {
-        //$this->auth = $auth;
-        $this->endpointName = "Auth";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/Auth.svc?wsdl", $soapoptions);
+        $result = $getUserByKeyReponse->GetUserByKeyResult;
+        $this->GetUserByKeyResult = $this->addUser($result);
     }
-    
-    public function logOnWithExternalProvider($userKey,$authCode)
+
+    public function addUser($user)
     {
-        return $this->client->LogOnWithExternalProvider(new LogOnWithExternalProvider($userKey, $authCode))->LogOnWithExternalProviderResult;
+        return new User($user->Email,
+                        $user->EmailSessionNotifications,
+                        $user->FirstName,
+                        $user->GroupMemberships,
+                        $user->LastName,
+                        $user->SystemRole,
+                        $user->UserBio,
+                        $user->UserId,
+                        $user->UserKey);
+    }
+
+    public function getUser()
+    {
+        return $this->GetUserByKeyResult;
     }
 }
 

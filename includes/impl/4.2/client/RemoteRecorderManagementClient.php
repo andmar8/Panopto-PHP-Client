@@ -40,7 +40,6 @@
     require_once($panoptoClientRoot."/dataObjects/objects/ArrayOfGuid.php");
     require_once($panoptoClientRoot."/dataObjects/responses/ArrayOfRemoteRecorderDevice.php");
     require_once($panoptoClientRoot."/dataObjects/responses/GetListRecordersResponse.php");
-//    require_once($panoptoClientRoot."/dataObjects/responses/ScheduleRecordingResponse.php");
     require_once($panoptoClientRoot."/dataObjects/responses/ScheduleRecurringRecordingResponse.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/ArrayOfRemoteRecorder.php");
     require_once($panoptoClientRoot."/impl/4.2/dataObjects/responses/GetRemoteRecordersByExternalIdResponse.php");
@@ -49,12 +48,14 @@
 
 class RemoteRecorderManagementClient extends AbstractPanoptoClient
 {
-    public function __construct($server, AuthenticationInfo $auth)
+    public function __construct($server, AuthenticationInfo $auth, $soapoptions = array(), $logenabled = true)
     {
         $this->auth = $auth;
         $this->endpointName = "RemoteRecorderManagement";
-        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl");
-        $this->logger = new Logger("/tmp/RemoteRecorderManagement4.2.log");
+        $this->client = new SoapClient("https://".$server."/Panopto/PublicAPI/4.2/RemoteRecorderManagement.svc?wsdl", $soapoptions);
+        if ($logenabled) {
+            $this->logger = new Logger("/tmp/RemoteRecorderManagement4.2.log");
+        }
     }
 
     public function getRemoteRecorderByExternalId($externalIds)
@@ -84,8 +85,8 @@ class RemoteRecorderManagementClient extends AbstractPanoptoClient
     
     public function scheduleRecording($name, $folderId, $start, $end, $recorderSettings, $isBroadcast = false)
     {
-        $this->logger->log($name." ".$folderId." ".$start." ".$end." ".$recorderSettings." ".$isBroadcast);
-        return /*new ScheduleRecordingResponse(*/$this->client->ScheduleRecording(new ScheduleRecording($this->auth, $name, $folderId, $isBroadcast, $start, $end, $recorderSettings))/*)*/;
+        $this->log($name." ".$folderId." ".$start." ".$end." ".$isBroadcast);
+        return new ScheduleRecordingResponse($this->client->ScheduleRecording(new ScheduleRecording($this->auth, $name, $folderId, $isBroadcast, $start, $end, $recorderSettings)));
     }
 
     /**
