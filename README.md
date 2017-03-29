@@ -1,3 +1,5 @@
+Note: This code base is currently unmaintained (this "might" change in the future), you will find a more up-to-date version here: https://github.com/lucisgit/php-panopto-api
+
 Panopto-PHP-Client
 ==================
 
